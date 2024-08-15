@@ -36,7 +36,7 @@ export async function addToy(req, res) {
 
     try {
         const toy = req.body
-        console.log('toy:', toy)
+        toy.owner = loggedinUser
         const addedToy = await toyService.add(toy)
         res.json(addedToy)
     } catch (err) {
